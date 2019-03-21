@@ -9,7 +9,7 @@
                     [ngClass]="{'active' : i == activeTab }">
                   <a href="#" (click)="selectTab(i)">
                       <i class="material-icons">group_work</i>
-                      {{ tab }}
+                      <span class="tab-name">{{ tab }}</span>
                       <span class="btn btn-clear" (click)="removeTab(i)"></span>
                   </a>
                 </li>

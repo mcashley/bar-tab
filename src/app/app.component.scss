@@ -37,13 +37,21 @@ body {
             overflow: hidden;
             padding: .4rem .4rem .3rem .4rem;
             text-decoration: none;
-            text-overflow: ellipsis;
+
             transition: all 400ms ease-out;
             white-space: nowrap;
             .material-icons {
                 font-size: 16px;
+                overflow-x: auto;
                 position: relative;
-                top: 2px;
+                top: -4px;
+            }
+            .tab-name {
+                display: inline-block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 100%;
             }
             .btn.btn-clear {
                 opacity: 0;
@@ -82,7 +90,7 @@ body {
     height: 100%;
 }
 .customized-scrollbar::-webkit-scrollbar {
-  height: 4px;
+  height: 6px;
   background-color: transparent;
   border-radius: 2px;
   position: absolute;
@@ -91,5 +99,5 @@ body {
 
 /* Add a thumb */
 .customized-scrollbar::-webkit-scrollbar-thumb {
-    background: #AAA;
+    background: #bcbcbc;
 }

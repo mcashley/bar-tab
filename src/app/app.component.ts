@@ -20,12 +20,12 @@ export class AppComponent {
       }
  }
 
- selectTab(tab: int) {
+ selectTab(tab: number) {
     if(tab) {
         this.activeTab = tab;
     }
  }
- removeTab(tab: int) {
+ removeTab(tab: number) {
      if (tab) {
          this.tabs.splice(tab, 1);
      }
