@@ -1,21 +1,61 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container pt-2">
+  <div class="panel">
+      <nav class="panel-nav">
+          <div class="tab-bar-container columns col-gapless">
+              <ul class="tab tab-block column">
+                <li *ngFor="let tab of tabs; index as i" class="tab-item"
+                    [ngStyle]="{'max-width.px': maxWidth,'min-width.px': minWidth}"
+                    [ngClass]="{'active' : i == activeTab }">
+                  <a href="#" (click)="selectTab(i)">
+                      <i class="material-icons">face</i>
+                      {{ tab }}
+                      <span class="btn btn-clear" (click)="removeTab(i)"></span>
+                  </a>
+                </li>
+              </ul>
+              <div class="column col-auto">
+                  <div class="dropdown more-tabs-dropdown">
+                      <button class="btn btn-action btn-more dropdown-toggle">&#x22EE;</button>
+                      <ul class="menu">
+                          <li *ngFor="let tab of tabs; index as i" class="menu-item">
+                              <a href='#' (click)="selectTab(i)">{{tab}}</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </nav>
+      <div class="panel-body">
+          <h1>Tab Exploration Machine</h1>
+          <div class="columns">
+              <div class="column col-3 col-xs-12 col-mx-auto">
+                  <form class="container">
+                      <h2>Parameters</h2>
+                      <div class="form-group">
+                          <label class="form-label" for="maxWidth">Max-width</label>
+                          <input class="form-input" type="number" name="maxWidth" [(ngModel)]="maxWidth"/>
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label" for="minWidth">Min-width</label>
+                          <input class="form-input" type="number" name="minWidth" [(ngModel)]="minWidth"/>
+                      </div>
+                  </form>
+              </div>
+              <div class="divider-vert"></div>
+              <div class="column col-3 col-xs-12 col-mx-auto">
+                  <form class="container">
+                      <h2>Add Tabs</h2>
+                      <div class="form-group">
+                          <label class="form-label" for="newTab">&nbsp;</label>
+                          <input #newTab class="form-input" newTab.value=''/>
+                      </div>
+                      <button (click)="addTab(newTab.value)">Add</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
 
+</div>
 <router-outlet></router-outlet>
