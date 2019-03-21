@@ -18,7 +18,7 @@ body {
     color: #333333;
     flex-wrap: nowrap;
     &.column {
-        overflow-x: scroll;
+        overflow-x: auto;
         margin: 0;
     }
     .tab-item {
@@ -81,8 +81,15 @@ body {
     font-size: 1.6rem;
     height: 100%;
 }
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    height: 0px;
-    background: transparent;  /* optional: just make scrollbar invisible */
+.customized-scrollbar::-webkit-scrollbar {
+  height: 4px;
+  background-color: transparent;
+  border-radius: 2px;
+  position: absolute;
+  top: -2px
+}
+
+/* Add a thumb */
+.customized-scrollbar::-webkit-scrollbar-thumb {
+    background: #AAA;
 }

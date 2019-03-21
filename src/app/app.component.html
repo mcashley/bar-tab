@@ -3,12 +3,12 @@
   <div class="panel">
       <nav class="panel-nav">
           <div class="tab-bar-container columns col-gapless">
-              <ul class="tab tab-block column">
+              <ul class="tab tab-block column customized-scrollbar">
                 <li *ngFor="let tab of tabs; index as i" class="tab-item"
                     [ngStyle]="{'max-width.px': maxWidth,'min-width.px': minWidth}"
                     [ngClass]="{'active' : i == activeTab }">
                   <a href="#" (click)="selectTab(i)">
-                      <i class="material-icons">face</i>
+                      <i class="material-icons">group_work</i>
                       {{ tab }}
                       <span class="btn btn-clear" (click)="removeTab(i)"></span>
                   </a>
@@ -27,7 +27,7 @@
           </div>
       </nav>
       <div class="panel-body">
-          <h1>Tab Exploration Machine</h1>
+          <h1>Tab Exploration Machine / {{ tabs[activeTab] }}</h1>
           <div class="columns">
               <div class="column col-3 col-xs-12 col-mx-auto">
                   <form class="container">
